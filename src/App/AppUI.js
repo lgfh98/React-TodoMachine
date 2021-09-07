@@ -6,6 +6,7 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoContext } from "../TodoContext";
+import { TodoForm } from "../TodoForm";
 
 function AppUI() {
   const {
@@ -15,7 +16,7 @@ function AppUI() {
     completeTodo,
     deleteTodo,
     openModal,
-    setOpenModal,
+    todos,
   } = React.useContext(TodoContext);
 
   return (
@@ -25,9 +26,7 @@ function AppUI() {
       <TodoList>
         {error && <p>🔥🔥🔥🔥🔥🔥🔥</p>}
         {loading && <p>Cargando...</p>}
-        {!loading && searchedTodos.length === 0 && (
-          <p>Crea tu primer TODO! 💚</p>
-        )}
+        {!loading && todos.length === 0 && <p>Crea tu primer TODO! 💚</p>}
         {searchedTodos.map((todo) => (
           <TodoItem
             key={todo.text}
@@ -41,7 +40,7 @@ function AppUI() {
       <CreateTodoButton />
       {openModal && (
         <Modal>
-          <p>{searchedTodos[0]?.text}</p>
+          <TodoForm />
         </Modal>
       )}
     </React.Fragment>
