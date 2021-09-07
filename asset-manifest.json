@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lgfh98/React-TodoMachine/static/css/main.896ea9b2.chunk.css",
+    "main.js": "/lgfh98/React-TodoMachine/static/js/main.b5495d02.chunk.js",
+    "main.js.map": "/lgfh98/React-TodoMachine/static/js/main.b5495d02.chunk.js.map",
+    "runtime-main.js": "/lgfh98/React-TodoMachine/static/js/runtime-main.92c1e888.js",
+    "runtime-main.js.map": "/lgfh98/React-TodoMachine/static/js/runtime-main.92c1e888.js.map",
+    "static/js/2.2b977cd4.chunk.js": "/lgfh98/React-TodoMachine/static/js/2.2b977cd4.chunk.js",
+    "static/js/2.2b977cd4.chunk.js.map": "/lgfh98/React-TodoMachine/static/js/2.2b977cd4.chunk.js.map",
+    "index.html": "/lgfh98/React-TodoMachine/index.html",
+    "static/css/main.896ea9b2.chunk.css.map": "/lgfh98/React-TodoMachine/static/css/main.896ea9b2.chunk.css.map",
+    "static/js/2.2b977cd4.chunk.js.LICENSE.txt": "/lgfh98/React-TodoMachine/static/js/2.2b977cd4.chunk.js.LICENSE.txt",
+    "static/media/check.fa4fb594.svg": "/lgfh98/React-TodoMachine/static/media/check.fa4fb594.svg",
+    "static/media/delete.331149da.svg": "/lgfh98/React-TodoMachine/static/media/delete.331149da.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.92c1e888.js",
+    "static/js/2.2b977cd4.chunk.js",
+    "static/css/main.896ea9b2.chunk.css",
+    "static/js/main.b5495d02.chunk.js"
+  ]
+}
