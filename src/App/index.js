@@ -35,11 +35,16 @@ function App() {
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
-      <TodoList>
-        {error && <TodosError error={error} />}
-        {loading && <TodosLoading />}
-        {!loading && todos.length === 0 && <EmpyTodos />}
-        {searchedTodos.map((todo) => (
+
+      <TodoList
+        todos={todos}
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        onError={() => <TodosError error={error} />}
+        onLoading={() => <TodosLoading />}
+        onEmptyTodos={() => <EmpyTodos />}
+        render={(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -47,8 +52,9 @@ function App() {
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
-        ))}
-      </TodoList>
+        )}
+      />
+
       <CreateTodoButton setOpenModal={setOpenModal} />
       {openModal && (
         <Modal>
