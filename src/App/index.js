@@ -40,11 +40,27 @@ function App() {
         todos={todos}
         error={error}
         loading={loading}
+        searchValue={searchValue}
         searchedTodos={searchedTodos}
         onError={() => <TodosError error={error} />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmpyTodos />}
-        render={(todo) => (
+        onEmptySearch={(searchValue) => (
+          <p>No hay resultados para: {searchValue}</p>
+        )}
+        // 😋😋 Forma 1 de enviar el contenido
+        // render={(todo) => (
+        //   <TodoItem
+        //     key={todo.text}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     onComplete={() => completeTodo(todo.text)}
+        //     onDelete={() => deleteTodo(todo.text)}
+        //   />
+        // )}
+      >
+        {/* 😋😋 Forma 2 de enviar el contenido */}
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -53,7 +69,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-      />
+      </TodoList>
 
       <CreateTodoButton setOpenModal={setOpenModal} />
       {openModal && (
