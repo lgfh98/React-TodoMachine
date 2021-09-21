@@ -11,7 +11,7 @@ import { TodosError } from "../TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmpyTodos } from "../EmptyTodos";
 import { useTodos } from "../hooks/useTodos";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
   const {
@@ -84,7 +84,7 @@ function App() {
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )}
-      <ChangeAlertWithStorageListener
+      <ChangeAlert
         updateTodos={updateTodos}
         setBlockActions={setBlockActions}
       />

@@ -1,13 +1,10 @@
 import React, { memo } from "react";
-import { WithStorageListener } from "../ChangeAlert/WithStorageListener";
+import { useStorageListener } from "../ChangeAlert/useStorageListener";
 import "./ChangeAlert.css";
 
-const ChangeAlert = memo(function ({
-  show,
-  toggleShow,
-  updateTodos,
-  setBlockActions,
-}) {
+const ChangeAlert = memo(function ({ setBlockActions, updateTodos }) {
+  const { show, toggleShow } = useStorageListener(setBlockActions);
+
   if (show) {
     return (
       <div className="ChangeAlert-container">
@@ -31,6 +28,4 @@ const ChangeAlert = memo(function ({
   }
 });
 
-const ChangeAlertWithStorageListener = WithStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener };
+export { ChangeAlert };
