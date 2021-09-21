@@ -18,7 +18,6 @@ function WithStorageListener(WrappedComponent) {
           {...props}
           show={storageChange}
           toggleShow={setStorageChange}
-          setBlockActions={props.setBlockActions}
         />
       </>
     );
