@@ -12,20 +12,22 @@ function App(props) {
   );
 }
 
-function withWhatever(WrappedComponent) {
-  return function ComponenteDeVerdad(props) {
-    return (
-      <>
-        <WrappedComponent {...props} />
-        <p>Estamos acompañando al WrapperComponent</p>
-      </>
-    );
+function withSaludo(saludo) {
+  return function WrappedComponentWithSaludo(WrappedComponent) {
+    return function ComponenteDeVerdad(props) {
+      return (
+        <>
+          <WrappedComponent {...props} saludo={saludo} />
+          <p>Estamos acompañando al WrapperComponent</p>
+        </>
+      );
+    };
   };
 }
 
-const AppWithWhatever = withWhatever(App);
+const AppWithSaludo = withSaludo("Buenas")(App);
 
 ReactDOM.render(
-  <AppWithWhatever saludo="Hola" nombre="Luis" />,
+  <AppWithSaludo nombre="Luis" />,
   document.getElementById("root")
 );
