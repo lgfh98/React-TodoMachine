@@ -13,6 +13,7 @@ function TodoList({
   todos,
   searchedTodos,
   onEmptySearch,
+  blockActions,
 }) {
   let alternativeRender;
   let contentRender = children || render;
@@ -32,7 +33,7 @@ function TodoList({
       {alternativeRender ? (
         alternativeRender
       ) : (
-        <ul>{searchedTodos.map(contentRender)}</ul>
+        <>{blockActions ? "" : <ul>{searchedTodos.map(contentRender)}</ul>}</>
       )}
     </section>
   );

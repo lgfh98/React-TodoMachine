@@ -11,6 +11,7 @@ import { TodosError } from "../TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmpyTodos } from "../EmptyTodos";
 import { useTodos } from "../hooks/useTodos";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
 function App() {
   const {
@@ -27,8 +28,10 @@ function App() {
     totalTodos,
     setOpenModal,
     addTodo,
+    updateTodos,
+    blockActions,
+    setBlockActions,
   } = useTodos();
-
   return (
     <>
       <TodoHeader loading={loading}>
@@ -40,6 +43,7 @@ function App() {
         todos={todos}
         error={error}
         loading={loading}
+        blockActions={blockActions}
         searchValue={searchValue}
         searchedTodos={searchedTodos}
         onError={() => <TodosError error={error} />}
@@ -71,12 +75,19 @@ function App() {
         )}
       </TodoList>
 
-      <CreateTodoButton setOpenModal={setOpenModal} />
+      <CreateTodoButton
+        blockActions={blockActions}
+        setOpenModal={setOpenModal}
+      />
       {openModal && (
         <Modal>
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )}
+      <ChangeAlertWithStorageListener
+        updateTodos={updateTodos}
+        setBlockActions={setBlockActions}
+      />
     </>
   );
 }
